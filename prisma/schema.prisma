@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id          Int      @id @default(autoincrement())
+  title       String
+  genre       String
+  platform    String
+  releaseYear Int
+  rating      Float?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
